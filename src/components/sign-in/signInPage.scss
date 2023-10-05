@@ -5,13 +5,13 @@
  align-items: center;
  justify-content: center;
  height: 100vh;
- background-color: #2ceab1;
+ color: var(--white);
+ background-color: hsl(256, 26%, 20%);
  //background-image: url('../../images/sign\ in\ back.jpg');
  background-size:cover;
  background-position: center;
  
-
-
+  
  .title {
     margin-bottom: 2rem;
  }

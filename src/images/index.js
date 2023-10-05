@@ -20,4 +20,6 @@ export const images = {
   hamburger: require("./icon-hamburger.svg").default,
   category1: require("./image1.jpg"),
   category2: require("./image2.jpg"),
+  car: require("./carlogo.png"),
+  bike: require("./bikelogo.png"),
 };

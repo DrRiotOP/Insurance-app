@@ -1,31 +1,58 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "./signUpPage.scss";
+import { InsuranceService } from "../../Services/InsuranceService";
 
 
 
 
 const SignUpPage = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const[state,setState]=useState({
+    user:{
+        "UserName":"",
+        "Email":"",
+        "Password":"",
+        "Age":0,
+        "Flag":0,
 
-  const handleSubmit = (e) => {
-    e.preventDefault();   
-  };
+    }
+});
+
+let {user}=state;
+let navigate=useNavigate();
+
+function updateInput(ev){
+    debugger;
+    setState({
+        ...state,user:{
+            ...state.user,[ev.target.name]:ev.target.value
+        }
+    })
+}
+
+function onSubmit(ev){
+    ev.preventDefault();
+    alert(user.UserName+" "+user.Flag+" "+user.Email+" "+user.Password);
+    InsuranceService.addUser(user).then((res)=>{
+        alert("User added successfully");
+        navigate('/');
+    })
+  }
 
   return (
     <div className="sign-up-page">
       <h1 className="title">Register</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="input-container">
+
         <label htmlFor="name">Name</label>
         <input
           type="text"
           id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          name="UserName"
+          value={user.UserName}
+          onChange={updateInput}
         />
         </div>
        
@@ -35,8 +62,20 @@ const SignUpPage = () => {
         <input
           type="email"
           id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="Email"
+          value={user.Email}
+          onChange={updateInput}
+        />
+        </div>
+
+        <div className="input-container">
+        <label htmlFor="age">Age</label>
+        <input
+          type="number"
+          id="age"
+          name="Age"
+          value={user.Age}
+          onChange={updateInput}
         />
         </div>
        
@@ -46,13 +85,14 @@ const SignUpPage = () => {
         <input
           type="password"
           id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          name="Password"
+          value={user.Password}
+          onChange={updateInput}
         />
         </div>
       
         
-        <div className="button-container"><button type="submit" >Sign Up</button></div>
+        <div className="button-container"><button type="submit"  >Sign Up</button></div>
         
       </form>
 

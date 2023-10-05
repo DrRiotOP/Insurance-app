@@ -12,7 +12,7 @@ const Banner = () => {
           <h2 className="title1 title1--mod">Types of Insurance We Provide: </h2>
           <div className="insurance-category__content">
             <div className="category1">
-              <Link to="/health-insurance">
+              <Link to="/dependent-list">
                 <img src={images.category1} alt="" />
               </Link>
               <h3>Health Insurance</h3>

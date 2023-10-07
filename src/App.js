@@ -17,6 +17,11 @@ import Carpremium from './pages/carpremium/Carpremium';
 import Bikepremium from './pages/bikepremium/Bikepremium';
 import DependentList from './components/health-insurance/DependentList';
 import AddDependent from './components/health-insurance/AddDependent';
+import Health from './pages/home/health/Health';
+import ThankYou from './components/health-insurance/ThankYou';
+//import AllPlans from './components/My-Plans/AllPlans'
+
+//import SendSms from './components/sms/SendSms';
 
 
 
@@ -33,17 +38,16 @@ const App = () => {
           <Route path='/SignUpPage' element={<Up />} />
           {/* <Route path='/health-insurance' element={<health-insurance />} /> */}
           <Route path='/vehicle-insurance' element={<Vehicle />} />
+          <Route path='/health-insurance' element={<Health/>}/>
           <Route path='/bike-quote' element={<Bike/>} />
           <Route path='/car-quote' element={<Car/>} />
           <Route path='/bike-premium' element={<Bikepremium/>} />
           <Route path='/car-premium' element={<Carpremium/>} />
           <Route path='/dependent-list' element={<DependentList/>} />
           <Route path='/add-dependent' element={<AddDependent/>} />
-
-
-          
-
-          
+          <Route path='/thank-you' element={<ThankYou/>}/>
+          {/* <Route path='/all-plans' element={<AllPlans/>}/> */}
+          {/* <Route path='/sendSms' element={<SendSms/>}/> */}
         </Routes>
         <Footer />
       </Router>

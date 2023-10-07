@@ -103,3 +103,127 @@
     transform: rotate(360deg);
   }
 }
+
+.card.package-card{
+
+  align-items: center;
+
+  text-align: center;
+
+  background-color: #28a745;
+
+  border: 1px solid #dee2e6; /* Light border color */
+
+  border-radius: 10px; /* Rounded corners */
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+
+  transition: transform 0.3s ease-in-out;
+
+  /* Smooth hover effect */
+
+
+  &:hover {
+
+    transform: scale(1.05);
+
+    /* background-color: #294563; */
+
+     /* Scale up on hover */
+
+  }
+
+ 
+
+}
+
+.package-container {
+
+  display: flex;
+
+  justify-content: space-around;
+
+  margin-bottom: 20px;
+
+  margin-top: 70px;
+
+}
+
+ 
+
+.package-card {
+
+  border: 1px solid black;
+
+  padding: 15px;
+
+  margin: 10px;
+
+  width: 350px;
+
+  height: 170px;
+
+}
+
+.card.health-card{
+
+  
+
+  background-color:lightgray;
+
+  border: 1px solid #dee2e6; /* Light border color */
+
+  border-radius: 10px; /* Rounded corners */
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+
+  transition: transform 0.3s ease-in-out;
+
+  /* Smooth hover effect */
+
+
+  &:hover {
+
+    transform: scale(1.05);
+
+    /* background-color: #294563; */
+
+     /* Scale up on hover */
+
+  }
+
+ 
+
+}
+
+.health-container {
+
+  display: flex;
+
+  justify-content: space-around;
+
+  margin-bottom: 20px;
+
+  margin-top: 70px;
+
+}
+
+ 
+
+.health-card {
+
+  border: 1px solid black;
+
+  padding: 15px;
+
+  margin: 10px;
+
+  width: 350px;
+
+  height: 305px;
+
+}
+
+
+
+

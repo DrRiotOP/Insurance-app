@@ -12,11 +12,22 @@ const SignUpPage = () => {
         "UserName":"",
         "Email":"",
         "Password":"",
+        "Mobile":"",
         "Age":0,
         "Flag":0,
+        "PackageLevel":"base",
+        "HealthPremium":0
 
     }
 });
+
+// const [ errors , setErrors] = useState({
+//   UserName: "",
+//   Email: "",
+//   Password: "",
+//   Age: "",
+// });
+
 
 let {user}=state;
 let navigate=useNavigate();
@@ -32,12 +43,38 @@ function updateInput(ev){
 
 function onSubmit(ev){
     ev.preventDefault();
-    alert(user.UserName+" "+user.Flag+" "+user.Email+" "+user.Password);
+    //alert(user.UserName+" "+user.Flag+" "+user.Email+" "+user.Password);
+
+    // let isValid = true;
+
+    //Name Validation
+    // if(user.name.length<3){
+    //   isValid=false;
+    //   setErrors({ ...errors, UserName: "Name must be atleast 3 characters"});
+    // }
+
+    // if(!user.Email.includes("@"))
+    // {
+    //   isValid= false;
+    //   setErrors({ ...errors, Email: "Email must be valid mail address"});
+
+    // }
+    // if(!user.Password.length<8)
+    // {
+    //   isValid= false;
+    //   setErrors({ ...errors, password: "Password must be atleast 8 characters"});
+
+    // }
+
+   
     InsuranceService.addUser(user).then((res)=>{
         alert("User added successfully");
-        navigate('/');
+        navigate('/SignInPage');
     })
+  
   }
+
+
 
   return (
     <div className="sign-up-page">
@@ -53,7 +90,9 @@ function onSubmit(ev){
           name="UserName"
           value={user.UserName}
           onChange={updateInput}
+          required
         />
+        {/* {errors.UserName && <span className="error">{errors.UserName}</span>} */}
         </div>
        
        
@@ -65,8 +104,21 @@ function onSubmit(ev){
           name="Email"
           value={user.Email}
           onChange={updateInput}
+          required
         />
         </div>
+        <div className="input-container">
+        <label htmlFor="number">Mobile</label>
+        <input
+          type="number"
+          id="mobile"
+          name="Mobile"
+          value={user.Mobile}
+          onChange={updateInput}
+          required
+        />
+        </div>
+        {/* {errors.Email && <span className="error">{errors.Email}</span>} */}
 
         <div className="input-container">
         <label htmlFor="age">Age</label>
@@ -76,6 +128,7 @@ function onSubmit(ev){
           name="Age"
           value={user.Age}
           onChange={updateInput}
+          required
         />
         </div>
        
@@ -88,7 +141,9 @@ function onSubmit(ev){
           name="Password"
           value={user.Password}
           onChange={updateInput}
+          required
         />
+        {/* {errors.Password && <span className="error">{errors.Password}</span>} */}
         </div>
       
         

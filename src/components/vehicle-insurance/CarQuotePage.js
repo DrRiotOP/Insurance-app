@@ -11,7 +11,8 @@ const CarQuotePage = () => {
         "Model":"",
         "Year":0,
         "Type":"FourWheeler",
-        "UserId":0
+        "UserId":0,
+        "VehiclePremium":0
     }
 });
 

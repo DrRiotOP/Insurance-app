@@ -7,11 +7,12 @@ import { InsuranceService } from '../../Services/InsuranceService';
 const BikeQuotePage = () => {
   const[state,setState]=useState({
     vehicle:{
-        "RegistrationNumber":"",
-        "Model":"",
-        "Year":0,
-        "Type":"TwoWheeler",
-        "UserId":0
+      "RegistrationNumber":"",
+      "Model":"",
+      "Year":0,
+      "Type":"TwoWheeler",
+      "UserId":0,
+      "VehiclePremium":0
     }
 });
 

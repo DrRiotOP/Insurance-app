@@ -1,5 +1,5 @@
 import React, { useState,useEffect} from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./signInPage.scss";
 import { images } from "../../images";
 import { InsuranceService } from "../../Services/InsuranceService";
@@ -7,6 +7,8 @@ import { InsuranceService } from "../../Services/InsuranceService";
 
 
 const SignInPage=()=>{
+
+  const [errorMessage, setErrorMessage] = useState('');
 
 const[state,setState]=useState({
   detail:{
@@ -29,6 +31,7 @@ function updateInput(ev){
   })
 }
 
+
 function onSubmit(ev){
   // ev.preventDefault();
   // InsuranceService.addDependent(dependent).then((res)=>{
@@ -44,15 +47,18 @@ function onSubmit(ev){
       // alert("User Found");
       if(u.Password==detail.Password)
       {
-        alert("Login Successful");
+        //alert("Login Successful");
+        setErrorMessage('');
         InsuranceService.updateUsers(u.UserId,3)
         // navigate('/AddDependent');
+
         navigate('/');
         
       }
       else{
-        alert("Incorrect password")
+        setErrorMessage('Invalid Username or Password');
       }
+      setErrorMessage('Invalid Username or Password');
     }
     // else{
     //   alert("User not found");
@@ -77,6 +83,8 @@ getData();
 let {users}=cred;
   return (
     <div className="sign-in-page">
+       
+
       <h1 className="title"> Sign In</h1>
       <form onSubmit={onSubmit}>
         <div className="input-container">
@@ -87,6 +95,7 @@ let {users}=cred;
             name="Email"
             value={detail.Email}
             onChange={updateInput}
+            required
           />
         </div>
 
@@ -98,9 +107,10 @@ let {users}=cred;
             name="Password"
             value={detail.Password}
             onChange={updateInput}
+            required
           />
         </div>
-
+        <span style={{color: 'red'}}>{errorMessage}</span>
         <div className="button-container">
           <button type="btn">Sign In</button>
         </div>

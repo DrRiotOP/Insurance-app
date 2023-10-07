@@ -1,6 +1,8 @@
 import React from "react";
 import "./hero.scss";
 import { images } from "../../images";
+import { Link } from "react-router-dom";
+//import SendSms from "../../components/sms/SendSms";
 
 const Hero = () => {
   return (
@@ -24,7 +26,9 @@ const Hero = () => {
               Get your Health or Vehicle Coverage easier and faster!!!<br/>
               We blend our expertise AND technology to help you find the plan that's right for you.Ensure you and your loved ones are protected.
             </p>
-            <button className="btn">View Plans</button>
+             <Link to="/all-plans"> 
+            <button className="btn">My Plans</button>
+             </Link>
           </div>
           <div className="hero__image">
             <picture>

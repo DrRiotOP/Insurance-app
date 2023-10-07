@@ -14,12 +14,14 @@ function BikeCalculator() {
     const yearPremium = (2023-year) * 100;
     const vehicleValuePremium = vehicleValue / 100;
     const totalPremium = yearPremium + vehicleValuePremium;
+    alert(totalPremium);
+    InsuranceService.updateVehiclePremium(totalPremium);
     setPremium(totalPremium.toFixed(2));
     setModalOpen(true);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    InsuranceService.updateVehicle(0,year);
+    InsuranceService.updateVehicle(year);
     calculatePremium();
   };
 
